@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <h1 align="center">Meta Mirror</h1>
+</head>
+<body>
+
+    <div align="center">
+        <img src="{% static 'shop/img/mirror_600.png'%}" width="500" heigh="300" alt="一張圖片">
+        <form method="get" action="cloth_img">
+            {% csrf_token %}
+            <button type="submit">Store</button>
+        </form>
+            <br>
+        <form method="post" action="tmp_re">
+            {% csrf_token %}
+            <button type="submit">Customer</button>
+        </form>
+    </div>
+</body>
+
+<br>
+<br>
+
+<footer>
+    <div align="center">2022</div>
+</footer>
+
+</html>
