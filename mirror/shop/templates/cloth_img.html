@@ -14,7 +14,7 @@
             衣服圖片：
             {%csrf_token%}
             {{ form.image }}
-            <input type="submit" value="上傳"> 
+            <button onclick="disable_Button()" id="upload" type="submit">上傳</button>
         </form>
         {% block content %}
         {% if shop.image %}

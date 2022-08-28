@@ -3,11 +3,12 @@ from .models import Cloth,Cloth_data
 
 # Register your models here.
 class ClothAdmin(admin.ModelAdmin):
-    list_display = ('image', 'upload_date')
+    list_display = ('id','image', 'upload_date')
+    
 class ClothDataAdmin(admin.ModelAdmin):
-    list_display = ('shoulder_s','shoulder_m','shoulder_l','shoulder_xl','shoulder_2l',
+    list_display = ('id','image_ID','shoulder_s','shoulder_m','shoulder_l','shoulder_xl','shoulder_2l',
         'chest_s','chest_m','chest_l','chest_xl','chest_2l',
-        'length_s','length_m','length_l','length_xl','length_2l')
+        'length_s','length_m','length_l','length_xl','length_2l', 'upload_date')
 
 admin.site.register(Cloth,ClothAdmin)
 admin.site.register(Cloth_data,ClothDataAdmin)

@@ -1,0 +1,78 @@
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet"></link>
+    
+
+    <title>Cloth_info</title>
+</head>
+
+<body>
+
+    <table border="0" width="100%"> 
+        <form action="." method="post" id="annex_form_2"></form> 
+        <tbody> 
+        <tr> 
+            <td class="col_name" nowrap="nowrap" width="26%">證書名稱：</td>
+            <td width="64%"><input size="65" class="input_general" id="prove_name_2" maxlength="50" name="prove_name" type="text"></td> 
+            <td nowrap="nowrap" width="7%"></td> 
+            <td nowrap="nowrap" width="3%"><a href="javascript:void(0);" onclick="SubmitAnnexInfo(2)" title="儲存">
+            <img src="C:/Users/hsieh/Documents/GitHub/mirror/mirror/static/app/img/mirror_600.png" alt="點此儲存"></a></td> 
+            <script>
+                function SubmitAnnexInfo() { 
+                        var prove_name = $("#id_prove_name").val(); //從介面得到值 
+                        var prove_type = $("#id_prove_type").val(); 
+                        var prove_desc = $("#id_prove_desc").val(); 
+                        $.ajaxFileUpload({  
+                        url: "/test/annex_info /",   //請求的Url地址 
+                        secureuri:false,  
+                        fileElementId:'id_prove_url',  
+                        dataType: 'jpg',  
+                        data: {   //加入的文字引數  
+                        "prove_name":prove_name, 
+                        "prove_type":prove_type,  
+                        "prove_desc":prove_desc 
+                        },  
+                        success: function(data) {  
+                        asyncbox.tips('操作成功！', 'success');          
+                        },  
+                        error: function() {  
+                        asyncbox.tips("上傳失敗，請檢查檔案是否符合格式要求。");  
+                        }  
+                        });  
+                } </script>
+        </tr> 
+        <tr> 
+            <td class="col_name">證件型別：</td> 
+            <td>
+                <select id="prove_type_2" name="prove_type"> 
+                <option selected="selected" value="1">身份證</option> 
+                <option value="2">學位證</option> 
+                <option value="3">其他證</option> 
+                </select>
+            </td> 
+            <td> </td> 
+            <td> </td> 
+        </tr> 
+        <tr> 
+            <td class="col_name">證書描述：</td> 
+            <td><input size="80" class="input_general" id="prove_desc_2" maxlength="60" name="prove_desc" type="text"></td> 
+            <td> </td> 
+            <td> </td> 
+        </tr> 
+        <tr> 
+        <td class="col_name">附件地址：</td> 
+        <td><input size="45" class="input_general" id="prove_url_2" maxlength="45" name="prove_url" style="border:0px;" type="file"></td> 
+        <td> </td> 
+        <td> </td> 
+        </tr> 
+        <tr> 
+            <td colspan="4"> 
+        <hr> 
+        </td> 
+        </tr> 
+        </tbody> 
+        </table> 
+</body>

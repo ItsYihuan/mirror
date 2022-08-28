@@ -7,7 +7,7 @@ class Cloth(models.Model):
     upload_date = models.DateField(default=timezone.now)
 
 class Cloth_data(models.Model):
-    #image_name = models.TextField()
+    image_ID = models.IntegerField(default=0)
     shoulder_s=models.IntegerField()
     shoulder_m=models.IntegerField()
     shoulder_l=models.IntegerField()
@@ -26,3 +26,5 @@ class Cloth_data(models.Model):
     length_xl=models.IntegerField()
     length_2l=models.IntegerField()
     upload_date = models.DateField(default=timezone.now)
+    def __int__(self):
+        return self.image_ID
