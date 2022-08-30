@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title></title>
     <h1 align="center">cloth_img upload</h1>
-    <style>input[type='number']{
-        width: 80px;
-    } </style>
+    <style type="text/css">
+        input[type='number']{
+            width: 80px;
+        } 
+    </style>
 </head>
 <body>
     <div align="center">
@@ -14,7 +16,7 @@
             衣服圖片：
             {%csrf_token%}
             {{ form.image }}
-            <button onclick="disable_Button()" id="upload" type="submit">上傳</button>
+            <button id="upload" type="submit">上傳</button>
         </form>
         {% block content %}
         {% if shop.image %}

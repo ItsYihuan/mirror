@@ -16,7 +16,7 @@ class ClothesDataModelForm(forms.ModelForm):
         'chest_s','chest_m','chest_l','chest_xl','chest_2l',
         'length_s','length_m','length_l','length_xl','length_2l')
         widgets={
-            'image_ID':forms.NumberInput(attrs={'value':"{{shop.id}}"}),
+            'image_ID':forms.NumberInput(attrs={'type':"hidden",'value':"{{shop.id}}"}),
             'shoulder_s':forms.NumberInput(attrs={'class': 'form-control','placeholder':'cm','min':"1", 'max':"100"}),
             'shoulder_m':forms.NumberInput(attrs={'class': 'form-control','placeholder':'cm','min':"1", 'max':"100"}),
             'shoulder_l':forms.NumberInput(attrs={'class': 'form-control','placeholder':'cm','min':"1", 'max':"100"}),

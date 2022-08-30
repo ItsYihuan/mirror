@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <title></title>
     <h1 align="center">cloth_info upload</h1>
-    <style>input[type='number']{
-        width: 80px;
-    } </style>
+    <style>
+    input[type='number']
+    {
+        width: 50px;
+    }
+    p{
+        font-weight: 700;
+    } 
+    </style>
 </head>
 <body>
     <div align="center">
@@ -17,7 +23,7 @@
             {% if shop.image %}
                 <img src="{{ shop.image.url }}">
                 <br>
-                {{form.image_ID}}
+                <p>{{form.image_ID}}</p>
             {% endif %}
             
             {% endblock  %} 

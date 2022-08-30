@@ -26,13 +26,14 @@ def cloth_img(request):
     
 def cloth_data(request):
     form = ClothesDataModelForm()
-
+    
     cloths = Cloth.objects.all()
     if(len(cloths)>=1):
         cloths=cloths[len(cloths)-1]
     else:
         cloths=cloths[0]
     print(cloths.id)
+
     if request.method == "POST":
         form = ClothesDataModelForm(request.POST)
         #print(request.POST['image_ID'])
@@ -48,7 +49,7 @@ def cloth_data(request):
         'shop':cloths,
         'form': form
     }
-    
+    context['form'].fields['image_ID'].initial=cloths.id 
     return render(request,'cloth_data.html',context)
 
 def user_selectCloth(request):
