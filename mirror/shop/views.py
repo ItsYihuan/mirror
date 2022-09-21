@@ -32,8 +32,7 @@ def cloth_data(request):
         cloths=cloths[len(cloths)-1]
     else:
         cloths=cloths[0]
-    print(cloths.id)
-
+    print(cloths.image)
     if request.method == "POST":
         form = ClothesDataModelForm(request.POST)
         #print(request.POST['image_ID'])
@@ -49,7 +48,7 @@ def cloth_data(request):
         'shop':cloths,
         'form': form
     }
-    context['form'].fields['image_ID'].initial=cloths.id 
+    context['form'].fields['image_ID'].initial=cloths.id
     return render(request,'cloth_data.html',context)
 
 def user_selectCloth(request):
@@ -58,6 +57,7 @@ def user_selectCloth(request):
         'shop': cloth,
     }
     return render(request, 'user_selectCloth.html', context)
+
 def user_show(request):
     cloth = NULL
     cloth_data=NULL
@@ -72,4 +72,4 @@ def user_show(request):
     }
     return render(request, 'user_show.html', context)
 
-    
+
