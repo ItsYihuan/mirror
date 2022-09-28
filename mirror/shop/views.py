@@ -2,6 +2,7 @@ from asyncio.windows_events import NULL
 from django.shortcuts import render
 from .forms import ClothesModelForm,ClothesDataModelForm,ClothesSelectModelForm
 from .models import Cloth,Cloth_data
+import cv2
 # Create your views here.
 def home(request):
     return render(request, 'home_page.html',{})
@@ -33,6 +34,8 @@ def cloth_data(request):
     else:
         cloths=cloths[0]
     print(cloths.image)
+    print("media/"+str(cloths.image))
+    cloth_img = cv2.imread("media/"+str(cloths.image))
     if request.method == "POST":
         form = ClothesDataModelForm(request.POST)
         #print(request.POST['image_ID'])
